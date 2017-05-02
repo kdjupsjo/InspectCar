@@ -1,6 +1,7 @@
 package se.kth.iv1350.inspectcar.controller;
 
 import se.kth.iv1350.inspectcar.integration.DatabaseManager;
+import se.kth.iv1350.inspectcar.integration.Garage;
 import se.kth.iv1350.inspectcar.model.Inspection;
 import se.kth.iv1350.inspectcar.model.Vehicle;
 
@@ -9,15 +10,30 @@ import se.kth.iv1350.inspectcar.model.Vehicle;
  */
 public class Controller {
     private DatabaseManager dbMgr;
+    private Garage          garage;
 
     /**
      * Creates a new instance using the specified database manager.
      *
      * @param dbMgr The database manager used for all database calls.
+     * @param garage The garage manages to open/close the door and display Queue
      */
-    public Controller(DatabaseManager dbMgr) {
+    public Controller(DatabaseManager dbMgr, Garage garage) {
         this.dbMgr = dbMgr;
+        this.garage= garage;
     }
+    
+    public void newInspection(){
+       garage.nextInspection();
+
+    }
+    
+    public void closeDoor() {
+        garage.closeDoor();
+    }
+    
+    
+    
 
     /**
      * Verifies that there are inspections to perform for the vehicle with the specified
@@ -33,4 +49,6 @@ public class Controller {
         Inspection inspection = new Inspection(vehicle, dbMgr);
         return inspection.getCost();
     }
-}
+    
+   
+}   
