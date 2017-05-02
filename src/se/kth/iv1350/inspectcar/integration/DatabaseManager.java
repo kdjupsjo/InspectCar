@@ -9,6 +9,7 @@ import se.kth.iv1350.inspectcar.model.Vehicle;
  */
 public class DatabaseManager {
     private List<InspectionItem> dummyInspectionList;
+    public List<InspectionItem> resultList;
 
     /**
      * Creates a new instance, which uses a hard coded list of inspections instead of calling a
@@ -39,5 +40,16 @@ public class DatabaseManager {
         dummyInspectionList.add(new InspectionItem("suspension", 20));
         dummyInspectionList.add(new InspectionItem("stearing", 30));
     }
+    
+    public List<InspectionItem> getDummyInsp(){
+     return dummyInspectionList;
+    }
+    
+    public void storeResult(InspectionItem part){
+        part.setResult(true);
+        resultList.add(part);
+    }
+    
+    
 
 }

@@ -6,6 +6,7 @@ package se.kth.iv1350.inspectcar.integration;
 public class InspectionItem {
     private final String name;
     private final int cost;
+    private boolean result;
 
     /**
      * Creates new instance representing the specified control.
@@ -39,5 +40,13 @@ public class InspectionItem {
         }
         InspectionItem otherInspItem = (InspectionItem) other;
         return otherInspItem.cost == this.cost && otherInspItem.name == this.name;
+    }
+    
+    public void setResult(boolean result){
+        this.result = result;
+    }
+    
+    public boolean getResult(){
+        return result;
     }
 }

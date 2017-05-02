@@ -1,7 +1,10 @@
 package se.kth.iv1350.inspectcar.controller;
 
+import java.util.List;
 import se.kth.iv1350.inspectcar.integration.DatabaseManager;
 import se.kth.iv1350.inspectcar.integration.Garage;
+import se.kth.iv1350.inspectcar.integration.InspectionItem;
+import se.kth.iv1350.inspectcar.integration.Printer;
 import se.kth.iv1350.inspectcar.model.Inspection;
 import se.kth.iv1350.inspectcar.model.Vehicle;
 
@@ -32,6 +35,12 @@ public class Controller {
         garage.closeDoor();
     }
     
+    public List <InspectionItem> getInspecion(){
+    // InspectionItem car= new InspectionItem();
+     List<InspectionItem> inspecL= dbMgr.getDummyInsp();
+     
+     return inspecL;
+    }
     
     
 
@@ -50,5 +59,15 @@ public class Controller {
         return inspection.getCost();
     }
     
+    public void storeResult(InspectionItem part){
+        
+        dbMgr.storeResult(part);
+    }
    
+    public void printResult(List<InspectionItem> inspectionList){
+        Printer printer = new Printer();
+        
+        printer.printResult(inspectionList);
+        
+    }
 }   

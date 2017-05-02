@@ -1,6 +1,8 @@
 package se.kth.iv1350.inspectcar.view;
 
+import java.util.List;
 import se.kth.iv1350.inspectcar.controller.Controller;
+import se.kth.iv1350.inspectcar.integration.InspectionItem;
 
 /**
  * This class is a placeholder for the view.
@@ -24,5 +26,17 @@ public class View {
         String regNoOfVehicleToInspect = "ABC123";
         int cost = contr.enterRegNo(regNoOfVehicleToInspect);
         System.out.println("The cost is:" + cost);
+        
+        List<InspectionItem> reginpec= contr.getInspecion();
+        
+        for(int i = 0; i< reginpec.size(); i++){
+            
+            contr.storeResult(reginpec.get(i));
+        }
+        
+        contr.printResult(reginpec);
+        
     }
+    
+    
 }
