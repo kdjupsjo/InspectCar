@@ -47,7 +47,9 @@ public class CounterTest {
         int max= MAX_VALUE;
         int expResult = contr.getBalance(); 
         
-        contr.addBalance(max);
+        contr.addPayment(max);
+        contr.addPayment(max);
+        contr.addBalance();
         
         int result = contr.getBalance();
         assertEquals("Counter can't be negative if postive funds are added", expResult, result);

@@ -24,15 +24,15 @@ public class Counter {
         return balance; 
     }
     public void addBalance() {
-         
-        if(balance > 0.5*counterLimit) {
-        System.out.println("Limit exceeded");       //If balance exceeds the counter limit
-        return;
-        } 
         balance = balance + customerPayment;
         customerPayment = 0;
     }
     public void addPayment(int cost) {
+        if(cost > 0.5*counterLimit) {
+            System.out.println("Payment limit exceeded, please contact your bank.");       //If balance exceeds the counter limit
+            return;
+        }
+        
         customerPayment += cost;
     }
     public int getPayment(){
