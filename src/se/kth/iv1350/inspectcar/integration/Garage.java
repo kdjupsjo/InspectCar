@@ -13,21 +13,26 @@ public class Garage {
 
     private GarageDoor door;
     private Display display;
-    private QueueNu queue;
-
-    Garage() {
+    private int queNo = 0;
+    
+    public Garage() {                               //Create a garage
         door = new GarageDoor();
         display = new Display();
-        queue = new QueueNu();
+        this.queNo = 0;
     }
 
-    public void nextInspection() {
-        int number = queue.incrment();
-        display.displayNumber(number);
-        door.openDoor();
+    public void nextInspection() {                  //Starts new Inspection and increase the quenumber
+       queNo = queNo + 1;
+       display.displayNumber(queNo);
+       door.openDoor();
+        
     }
 
-    public void closeDoor() {
-
+    public void closeDoor() {                   //close garage door
+        door.closeDoor();
     }
+    
+    public int getQueNumber(){                  //Retrieves the quenumbers
+        return queNo; 
+    } 
 }

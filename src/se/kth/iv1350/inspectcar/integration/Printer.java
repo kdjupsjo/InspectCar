@@ -11,13 +11,16 @@ import java.util.List;
  *
  * @author masaralmosawi
  */
-public class Printer {
+public class Printer {                          //Printer prints out the results of specific inspections
     
-    public void printResult(List<InspectionItem> inspectionList){
+    public void printResult(List<InspectionItem> inspectionList, int cost){
         
         for(InspectionItem e : inspectionList){
-            System.out.println("The result is " + e.getResult());
+            String status = "Repaired"; 
+            if(!e.getResult())
+                status ="Not Repaired";
+            System.out.println(e.getName() + " is: " + status);
         }
-    }
-    
+        System.out.println("Total amount to pay: " + cost + " SEK");
+    } 
 }

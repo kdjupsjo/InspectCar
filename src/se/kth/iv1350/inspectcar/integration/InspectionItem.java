@@ -14,7 +14,7 @@ public class InspectionItem {
      * @param name The name of this control.
      * @param cost The cost of this control.
      */
-    InspectionItem(String name, int cost) {
+    public InspectionItem(String name, int cost) {
         this.name = name;
         this.cost = cost;
     }
@@ -48,5 +48,9 @@ public class InspectionItem {
     
     public boolean getResult(){
         return result;
+    }
+    
+    public String getName(){
+        return name;
     }
 }

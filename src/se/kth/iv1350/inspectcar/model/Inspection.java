@@ -1,9 +1,15 @@
 package se.kth.iv1350.inspectcar.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.lang.Exception;
 import java.util.List;
 import se.kth.iv1350.inspectcar.integration.DatabaseManager;
 import se.kth.iv1350.inspectcar.integration.InspectionItem;
+import se.kth.iv1350.inspectcar.integration.NoExistingVehicleException;
+import se.kth.iv1350.inspectcar.integration.OperationFailedException;
 
 /**
  * Represents an inspection of a vehicle.
@@ -18,10 +24,15 @@ public class Inspection {
      * @param vehicle The vehicle that is inspected.
      * @param dbMgr   The database manager to use when searching for inspections for the specified
      *                vehicle.
+     * @throws se.kth.iv1350.inspectcar.integration.NoExistingVehicleException
+     * @throws se.kth.iv1350.inspectcar.integration.OperationFailedException
+     * @throws java.io.FileNotFoundException
      */
     public Inspection(Vehicle vehicle, DatabaseManager dbMgr) {
         this.vehicle = vehicle;
+ 
         this.inspections = dbMgr.findInspectionsByVehicle(vehicle);
+        
     }
 
     /**

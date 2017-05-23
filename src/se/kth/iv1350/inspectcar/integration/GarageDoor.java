@@ -11,9 +11,9 @@ package se.kth.iv1350.inspectcar.integration;
  */
 public class GarageDoor {
 
-    private boolean openDoor;
+    private boolean openDoor;               
 
-    GarageDoor() {
+    GarageDoor() {                          //Creates a door, cloesed by default
         openDoor = false;
     }
 
